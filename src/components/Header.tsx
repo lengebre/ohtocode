@@ -1,4 +1,4 @@
-import { Sun, Moon } from 'lucide-react';
+import { Moon, Sun } from 'lucide-react';
 import type { ThemeConfig } from '../types';
 
 interface HeaderProps {
@@ -15,7 +15,7 @@ export function Header({ isDarkMode, onToggleDarkMode, theme }: HeaderProps) {
           Neural Reference Architecture
         </div>
         <h1 className="text-3xl md:text-4xl font-medium tracking-tight">
-          Machine Learning <span className="text-[#7896f5]">Blocks</span>
+          AIF-C01 <span className="text-[#7896f5]">Notes</span>
         </h1>
       </div>
       <button

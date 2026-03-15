@@ -44,6 +44,11 @@ src/
 - **Hooks** encapsulate theme, training simulation, pulse animation, and inference progress.
 - **Tab panels** are in `src/components/tabs/`; layout pieces (header, nav, footer) live in `src/components/`.
 
+## Requirements
+
+- **Node.js** 20 LTS or newer (see [releases](https://nodejs.org/en/about/releases/)). Use `.nvmrc` with nvm: `nvm use`.
+- CI and GitHub Actions use pinned stable versions (see workflow comments and `package.json` `engines`).
+
 ## Run locally
 
 ```bash
@@ -60,3 +65,14 @@ npm run build
 npm run preview   # optional: preview production build
 ```
 
+## Test
+
+```bash
+npm run test        # run tests once
+npm run test:watch  # run tests in watch mode
+npm run audit       # check dependencies for known vulnerabilities
+```
+
+## Security (OWASP Top 10)
+
+The app is aligned with [OWASP Top 10](https://owasp.org/Top10/) where applicable: production builds inject a strict Content-Security-Policy and other security meta tags, all user content is rendered safely (no `dangerouslySetInnerHTML`), and CI runs tests and dependency audit. See [SECURITY.md](SECURITY.md) for details.

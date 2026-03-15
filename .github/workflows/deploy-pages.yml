@@ -1,3 +1,5 @@
+# Pinned to stable action versions and Node 20 LTS for reproducible builds.
+# Actions: https://github.com/actions/*/releases | Node: https://nodejs.org/en/about/releases/
 name: aif-c01-visualizer
 
 on:
@@ -19,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.3.1
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -30,13 +32,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Run tests
+        run: npm run test
+
+      - name: Audit dependencies (OWASP A06)
+        run: npm run audit
+        continue-on-error: true
+
       - name: Build for GitHub Pages
         run: npm run build
         env:
           GITHUB_PAGES: 'true'
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4.0.0
         with:
           path: ./dist
 
@@ -49,4 +58,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v4.0.5
