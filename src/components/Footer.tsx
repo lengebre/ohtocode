@@ -1,4 +1,4 @@
-import { Cpu, Brain } from 'lucide-react';
+import { Brain, Cpu } from 'lucide-react';
 import type { ThemeConfig } from '../types';
 
 interface FooterProps {
@@ -21,7 +21,7 @@ export function Footer({ theme, isDarkMode }: FooterProps) {
           <Brain size={14} /> NEURONS: NON-LINEAR NODES
         </div>
         <a
-          href="https://github.com/lengebre/oh2code/blob/main/LICENSE"
+          href="https://github.com/lengebre/ohtocode/blob/main/LICENSE"
           target="_blank"
           rel="noopener noreferrer"
           className={`${theme.muted} hover:underline mt-2`}

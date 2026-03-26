@@ -3,13 +3,20 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="refresh" content="0; url=/oh2code/" />
-  <script>window.location.replace("/oh2code/" + (window.location.search || ""));</script>
-  <title>Redirecting…</title>
+  <script>
+    // Preserve the full path so GitHub Pages routes back to the right repo
+    var path = window.location.pathname;
+    var base = '/ohtocode/';
+    if (!path.startsWith(base)) {
+      window.location.replace(base);
+    } else {
+      sessionStorage.setItem('redirect', path);
+      window.location.replace(base);
+    }
+  </script>
+  <title>Redirecting...</title>
 </head>
 
-<body>
-  <p>Redirecting to <a href="/oh2code/">AIF-C01 Notes</a>…</p>
-</body>
+<body></body>
 
 </html>
