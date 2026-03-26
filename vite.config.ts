@@ -3,7 +3,7 @@ import type { Plugin } from 'vite';
 import { defineConfig } from 'vite';
 
 // GitHub Pages serves project sites at https://<user>.github.io/<repo>/
-const base = '/';
+const base = process.env.GITHUB_PAGES === 'true' ? '/ohtocode/' : '/';
 /** Injects OWASP-aligned security meta tags into built index.html only (no impact on dev). */
 function securityHeaders(): Plugin {
   const securityMeta = [
